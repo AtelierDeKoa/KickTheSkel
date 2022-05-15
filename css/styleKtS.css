@@ -1,17 +1,132 @@
 body {
     height: 100vh;
     margin: 0;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: #D3C2AF;
-    /* overflow: hidden; */
+    align-items: center; */
+    background-image: url("../img/fondo01.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
+    background-color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: hidden;
 }
 
 
-/* Fondo */
-
-#fondoKtS {
-    width: 100%;
+/* .image {
     position: absolute;
+} */
+
+#wand00 {
+    height: 200px;
+    bottom: 0;
+}
+
+#mov {
+    display: inline-block;
+    animation: walk 10s linear infinite;
+    cursor: pointer;
+    top: 50%;
+    position: absolute;
+}
+
+#lilBomb01 {
+    height: 200px;
+    display: none;
+}
+
+
+/* Counter */
+
+#counterDiv {
+    position: absolute;
+    right: 24%;
+    top: 10%;
+    width: 200px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: rgb(204, 204, 204);
+    border-radius: 20px;
+}
+
+
+/* Timer */
+
+#timer {
+    color: whitesmoke;
+    width: 80px;
+    height: 80px;
+    background-color: rgb(88, 88, 88);
+    position: absolute;
+    right: 17%;
+    top: 10%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+
+/* Pause */
+
+#pauseBtn {
+    width: 80px;
+    height: 80px;
+    background-color: rgb(88, 88, 88);
+    color: whitesmoke;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    border-radius: 20px;
+    font-weight: 1000;
+}
+
+#pauseBtn:hover {
+    background-color: whitesmoke;
+    color: rgb(88, 88, 88);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#pauseOpt {
+    height: 300px;
+    width: 500px;
+    background-color: rgb(204, 204, 204);
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+#pauseOpt a {
+    text-decoration: none;
+    color: black;
+    font-size: 100px;
+}
+
+#pauseOpt a:hover {
+    transform: scale(1.1);
+    color: rgb(63, 63, 63);
+}
+
+@keyframes walk {
+    0% {
+        left: -100%
+    }
+    100% {
+        left: 100%
+    }
 }
