@@ -1,0 +1,17 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D3C2AF;
+    /* overflow: hidden; */
+}
+
+
+/* Fondo */
+
+#fondoKtS {
+    width: 100%;
+    position: absolute;
+}

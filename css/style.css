@@ -1,0 +1,66 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D3C2AF;
+    overflow: hidden;
+}
+
+
+/* Fondo de la pantalla de inicio */
+
+#fondo {
+    height: 100vh;
+    width: 100%;
+}
+
+#fondoUp {
+    height: 100vh;
+}
+
+#fondoAnim {
+    transform: scale(0.9);
+    margin-top: -100%;
+    animation: fonAnim 2s linear infinite forwards;
+}
+
+@keyframes fonAnim {
+    0% {
+        transform: translateY(0px) scale(0.9);
+    }
+    50% {
+        transform: translateY(20px) scale(0.9);
+    }
+    100% {
+        transform: translateY(0px) scale(0.9);
+    }
+}
+
+
+/* Boton Start */
+
+#Start {
+    position: absolute;
+    bottom: 12%;
+    left: 40%;
+}
+
+#StartBtn {
+    background-color: #36212E;
+    color: #FCEFE0;
+    border-color: #FCEFE0;
+    border-radius: 30px;
+    border: solid 5px;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 80px;
+    width: 240px;
+    height: 120px;
+    cursor: pointer;
+}
+
+#StartBtn:hover {
+    transform: scale(1.1);
+    background-color: #553448;
+}
