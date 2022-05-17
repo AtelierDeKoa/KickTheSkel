@@ -1,3 +1,4 @@
+// Variables
 let counter = 0;
 let leftTime = 60;
 
@@ -8,7 +9,7 @@ $("#mov").click(function() {
     $(this).find("#skel01").css("display", "none");
     $(this).find("#lilBomb01").css("display", "block");
     $(this).css("animation-play-state", "paused").fadeOut(400, () => $(this).remove());
-})
+});
 
 // Timer
 const interval = setInterval(function() {
@@ -23,4 +24,7 @@ const interval = setInterval(function() {
 // Pause
 $("#pauseBtn").click(function() {
     $("#pauseOpt").css("display", "flex");
-})
+});
+
+
+

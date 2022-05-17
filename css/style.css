@@ -43,24 +43,70 @@ body {
 
 #Start {
     position: absolute;
-    bottom: 12%;
-    left: 40%;
+    top: 70%;
+    left: 30%;
+    
 }
 
-#StartBtn {
+/* Boton How to play */
+#howToPlay{
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    width: 300px;
+}
+
+/* Explicacion del juego */
+#playExp{
+    height: 70%;
+    width: 70%;
+    background-color: #36212E;
+    position: absolute;
+    border-radius: 50px;
+    display: none;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium';
+    color: #FCEFE0;
+    padding: 50px;
+}
+
+#playExp p{
+    font-size: 20px;
+}
+
+#StartPlay{
+    position: absolute;
+    bottom: 50px;
+}
+
+#closeHtP{
+    position: absolute;
+    right: 40px;
+    top: 10px;
+}
+
+#closeHtP:hover{
+    transform: scale(1.1);
+    color: #D3C2AF;
+}
+
+/* Botones */
+.Btn {
     background-color: #36212E;
     color: #FCEFE0;
     border-color: #FCEFE0;
     border-radius: 30px;
     border: solid 5px;
     font-family: 'Franklin Gothic Medium';
-    font-size: 80px;
-    width: 240px;
-    height: 120px;
+    font-size: 50px;
     cursor: pointer;
+    height: 80px;
 }
 
-#StartBtn:hover {
+.Btn:hover {
     transform: scale(1.1);
     background-color: #553448;
 }
