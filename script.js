@@ -21,6 +21,8 @@ const interval = setInterval(function() {
     }
 }, 1000);
 
+// TODO: Buscar setTimeout() para cuenta atrás y el setInterval para hacer reaparecer los esqueletos
+
 // Pause
 $("#pauseBtn").click(function() {
     $("#pauseOpt").css("display", "flex");
