@@ -1,12 +1,13 @@
 // Variables
 let counter = 0;
 let leftTime = 60;
+let despMenu=false;
 
 // Click en esqueleto
 $("#mov").click(function() {
-    counter++;
     $("#counter").text(counter);
     $(this).find("#skel01").css("display", "none");
+    counter++;
     $(this).find("#lilBomb01").css("display", "block");
     $(this).css("animation-play-state", "paused").fadeOut(400, () => $(this).remove());
 });
@@ -24,9 +25,27 @@ const interval = setInterval(function() {
 // TODO: Buscar setTimeout() para cuenta atrás y el setInterval para hacer reaparecer los esqueletos
 
 // Pause
-$("#pauseBtn").click(function() {
-    $("#pauseOpt").css("display", "flex");
-});
+function pauseMenu() {
+    if(despMenu==false){
+        $("#pauseOpt").css("display", "flex");
+        despMenu=true;
+    }else{
+        $("#pauseOpt").css("display", "none");
+        despMenu=false;
+    }
+};
+
+$("#pauseBtn").click(pauseMenu);
+
+function teclaPulsada(e){
+    if(e.code==Escape){
+        pauseMenu;
+    }
+};
+
+document.addEventListener("keyup", teclaPulsada);
+
+// Me falta poner el condicional de el pause abierto
 
 
 
