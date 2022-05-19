@@ -11,9 +11,10 @@ body {
 
 #wand00 {
     position: absolute;
-    height: 200px;
+    height: 20%;
     bottom: 0px;
     left: 45%;
+    z-index: 1;
 }
 
 
