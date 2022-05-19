@@ -1,9 +1,6 @@
 body {
     height: 100vh;
     margin: 0;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     background-image: url("../img/fondo01.jpg");
     background-repeat: no-repeat;
     background-size: 100% 80%;
@@ -12,27 +9,65 @@ body {
     overflow: hidden;
 }
 
-
-/* .image {
-    position: absolute;
-} */
-
 #wand00 {
+    position: absolute;
     height: 200px;
-    bottom: 0;
+    bottom: 0px;
+    left: 45%;
 }
 
-#mov {
+
+/* Esqueletos */
+
+.figL {
     display: inline-block;
-    animation: walk 10s linear infinite;
+    animation: walkL 10s linear infinite;
     cursor: pointer;
     top: 50%;
     position: absolute;
 }
 
-#lilBomb01 {
+.figR {
+    display: inline-block;
+    animation: walkR 10s linear infinite;
+    cursor: pointer;
+    top: 50%;
+    position: absolute;
+}
+
+.lilBomb01 {
     height: 200px;
     display: none;
+}
+
+
+/* Calabazas */
+
+.pumpL {
+    animation: flyL 5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+}
+
+.pumpR {
+    animation: flyR 5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    left: 100%;
+}
+
+.pump {
+    height: 100px;
+    width: 100px;
+}
+
+.lilBomb02 {
+    height: 100px;
+    display: none;
+    top: 0px;
+    position: absolute;
 }
 
 
@@ -109,12 +144,13 @@ body {
     align-items: center;
     justify-content: center;
     display: none;
+    z-index: 1;
 }
 
 #pauseOpt a {
     text-decoration: none;
     color: black;
-    font-size: 100px;
+    font-size: 80px;
 }
 
 #pauseOpt a:hover {
@@ -122,11 +158,48 @@ body {
     color: rgb(63, 63, 63);
 }
 
-@keyframes walk {
+@keyframes walkL {
     0% {
-        left: -100%
+        left: -10%
     }
     100% {
         left: 100%
+    }
+}
+
+@keyframes walkR {
+    0% {
+        right: -10%;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+@keyframes flyL {
+    0% {
+        left: -5%;
+        top: 40%;
+    }
+    25% {
+        top: 10%
+    }
+    100% {
+        left: 120%;
+        top: 40%;
+    }
+}
+
+@keyframes flyR {
+    0% {
+        left: 120%;
+        top: 40%;
+    }
+    25% {
+        top: 10%
+    }
+    100% {
+        left: -25%;
+        top: 40%;
     }
 }

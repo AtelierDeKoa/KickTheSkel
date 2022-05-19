@@ -1,20 +1,123 @@
 // Variables
 let counter = 0;
 let leftTime = 60;
-let despMenu=false;
+let despMenu = false;
 
-// Click en esqueleto
-$("#mov").click(function() {
-    $("#counter").text(counter);
-    $(this).find("#skel01").css("display", "none");
+
+// Borrar esqueletos
+function deleteSkel() {
+    // Subir numero del contador
     counter++;
-    $(this).find("#lilBomb01").css("display", "block");
+    $("#counter").text(counter);
+    // Ocultar el esqueleto
+    $(this).find(".skel01").css("display", "none");
+    // Que aparezca la bomba
+    $(this).find(".lilBomb01").css("display", "block");
+    // Que la animacion se pause y que se elimine el div del html
     $(this).css("animation-play-state", "paused").fadeOut(400, () => $(this).remove());
-});
+};
+
+// Borrar calabazas
+function deletePump() {
+    // Subir numero del contador
+    counter = counter + 5;
+    $("#counter").text(counter);
+    // Ocultar la calabaza
+    $(this).find(".pump").css("display", "none");
+    // Que aparezca la bomba
+    $(this).find(".lilBomb02").css("display", "block");
+    // Que la animacion se pause y que se elimine el div del html
+    $(this).css("animation-play-state", "paused").fadeOut(600, () => $(this).remove());
+};
+
+// Crear nuevos esqueletos
+function figL() {
+    if (!despMenu) {
+        const newfig = jQuery("<div>", {
+            class: "figL anim"
+        }).appendTo("body").click(deleteSkel);
+        jQuery("<img>", {
+            class: "skel01",
+            alt: "Esqueleto",
+            src: "img/SkelLgif.gif"
+        }).appendTo(newfig);
+        jQuery("<img>", {
+            class: "lilBomb01",
+            alt: "Esqueleto *c muere*",
+            src: "img/lilBomb01.png"
+        }).appendTo(newfig);
+    }
+
+    setTimeout(figL, 1000 * Math.random() + 2000);
+};
+setTimeout(figL, 1000);
+
+function figR() {
+    if (!despMenu) {
+        const newfig = jQuery("<div>", {
+            class: "figR anim"
+        }).appendTo("body").click(deleteSkel);
+        jQuery("<img>", {
+            class: "skel01",
+            alt: "Esqueleto",
+            src: "img/SkelRgif.gif"
+        }).appendTo(newfig);
+        jQuery("<img>", {
+            class: "lilBomb01",
+            alt: "Esqueleto *c muere*",
+            src: "img/lilBomb01.png"
+        }).appendTo(newfig);
+    }
+    setTimeout(figR, 1000 * Math.random() + 2000);
+};
+setTimeout(figR, 1000);
+
+// Crear calabazas
+function pumpkinL() {
+    if (!despMenu) {
+        const newpump = jQuery("<div>", {
+            class: "pumpL anim"
+        }).appendTo("body").click(deletePump);
+        jQuery("<img>", {
+            class: "pump",
+            alt: "Good Pumpkin",
+            src: "img/goodPumpkingif.gif"
+        }).appendTo(newpump);
+        jQuery("<img>", {
+            class: "lilBomb02",
+            alt: "Calabaza *c muere*",
+            src: "img/lilBomb01.png"
+        }).appendTo(newpump);
+    }
+    setTimeout(pumpkinL, 5000 + (1000 * Math.random() + 8000));
+}
+setTimeout(pumpkinL, 2000);
+
+function pumpkinR() {
+    if (!despMenu) {
+        const newpump = jQuery("<div>", {
+            class: "pumpR anim"
+        }).appendTo("body").click(deletePump);
+        jQuery("<img>", {
+            class: "pump",
+            alt: "Evil Pumpkin",
+            src: "img/evilPumpkingif.gif"
+        }).appendTo(newpump);
+        jQuery("<img>", {
+            class: "lilBomb02",
+            alt: "Calabaza *c muere*",
+            src: "img/lilBomb01.png"
+        }).appendTo(newpump);
+    }
+    setTimeout(pumpkinR, 1000 * Math.random() + 8000);
+}
+setTimeout(pumpkinR, 2000);
 
 // Timer
 const interval = setInterval(function() {
-    leftTime--;
+    if (!despMenu) {
+        leftTime--;
+    }
     $("#timer").text(leftTime);
     if (leftTime == 0) {
         clearInterval(interval);
@@ -22,30 +125,40 @@ const interval = setInterval(function() {
     }
 }, 1000);
 
-// TODO: Buscar setTimeout() para cuenta atrás y el setInterval para hacer reaparecer los esqueletos
-
 // Pause
 function pauseMenu() {
-    if(despMenu==false){
+    if (despMenu == false) {
         $("#pauseOpt").css("display", "flex");
-        despMenu=true;
-    }else{
+        $(".anim").css("animation-play-state", "paused");
+
+        despMenu = true;
+    } else {
         $("#pauseOpt").css("display", "none");
-        despMenu=false;
+        $(".anim").css("animation-play-state", "running");
+        despMenu = false;
     }
 };
 
 $("#pauseBtn").click(pauseMenu);
+$("#continue").click(pauseMenu);
 
-function teclaPulsada(e){
-    if(e.code==Escape){
-        pauseMenu;
+function teclaPulsada(e) {
+    if (e.code == "Escape") {
+        pauseMenu();
     }
 };
 
 document.addEventListener("keyup", teclaPulsada);
 
-// Me falta poner el condicional de el pause abierto
+// TODO: 
+// Girar la varita
+// Pantalla final
 
+// BUG: doble click esqueleto
+// Pantalla de inicio centrada
+// Calabaza que se queda quieta
 
-
+// Mejoras: aumento velocidad a tope
+// Cuando termine la animacion que se removee el esqueleto
+// Arreglar la pantalla de inicio
+// Parar gifs
