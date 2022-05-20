@@ -9,8 +9,12 @@ body {
     overflow: hidden;
 }
 
+
+/* Varita */
+
 #wand00 {
     position: absolute;
+    transform-origin: bottom center;
     height: 20%;
     bottom: 0px;
     left: 45%;
@@ -59,7 +63,9 @@ body {
     width: 100px;
 }
 
+
 /* Bombas */
+
 .lilBomb01 {
     height: 200px;
     display: none;
@@ -72,13 +78,14 @@ body {
     position: absolute;
 }
 
-.bigBomb{
+.bigBomb {
     position: absolute;
     bottom: 0px;
     height: 100vh;
     width: auto;
     z-index: 1;
 }
+
 
 /* Counter */
 
@@ -94,6 +101,20 @@ body {
     font-size: 30px;
     background-color: rgb(204, 204, 204);
     border-radius: 20px;
+    z-index: 2;
+    animation: points 3s 1 paused forwards;
+}
+
+.restart {
+    text-decoration: none;
+    color: rgb(242, 234, 234);
+    font-size: 200px;
+    z-index: 4;
+    transform-origin: bottom center;
+    display: none;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
 }
 
 
@@ -167,6 +188,9 @@ body {
     color: rgb(63, 63, 63);
 }
 
+
+/* Animaciones */
+
 @keyframes walkL {
     0% {
         left: -10%
@@ -210,5 +234,24 @@ body {
     100% {
         left: -25%;
         top: 40%;
+    }
+}
+
+@keyframes points {
+    0% {
+        right: 24%;
+        top: 10%;
+        width: 200px;
+        height: 80px;
+        font-size: 30px;
+        border-radius: 20px;
+    }
+    100% {
+        right: 15%;
+        top: 15%;
+        width: 70%;
+        height: 50%;
+        font-size: 200px;
+        border-radius: 50px;
     }
 }

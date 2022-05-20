@@ -45,19 +45,22 @@ body {
     position: absolute;
     top: 70%;
     left: 30%;
-    
 }
 
+
 /* Boton How to play */
-#howToPlay{
+
+#howToPlay {
     position: absolute;
     top: 70%;
     left: 40%;
     width: 300px;
 }
 
+
 /* Explicacion del juego */
-#playExp{
+
+#playExp {
     height: 70%;
     width: 70%;
     background-color: #36212E;
@@ -73,27 +76,29 @@ body {
     padding: 50px;
 }
 
-#playExp p{
-    font-size: 20px;
+#playExp p {
+    font-size: 25px;
 }
 
-#StartPlay{
+#StartPlay {
     position: absolute;
     bottom: 50px;
 }
 
-#closeHtP{
+#closeHtP {
     position: absolute;
     right: 40px;
     top: 10px;
 }
 
-#closeHtP:hover{
+#closeHtP:hover {
     transform: scale(1.1);
     color: #D3C2AF;
 }
 
+
 /* Botones */
+
 .Btn {
     background-color: #36212E;
     color: #FCEFE0;

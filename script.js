@@ -32,7 +32,7 @@ function deletePump() {
 
 // Crear nuevos esqueletos
 function figL() {
-    if (!despMenu && leftTime>0) {
+    if (!despMenu && leftTime > 0) {
         const newfig = jQuery("<div>", {
             class: "figL anim"
         }).appendTo("body").click(deleteSkel);
@@ -47,13 +47,12 @@ function figL() {
             src: "img/lilBomb01.png"
         }).appendTo(newfig);
     }
-
     setTimeout(figL, 1000 * Math.random() + 2000);
 };
 setTimeout(figL, 1000);
 
 function figR() {
-    if (!despMenu && leftTime>0) {
+    if (!despMenu && leftTime > 0) {
         const newfig = jQuery("<div>", {
             class: "figR anim"
         }).appendTo("body").click(deleteSkel);
@@ -74,7 +73,7 @@ setTimeout(figR, 1000);
 
 // Crear calabazas
 function pumpkinL() {
-    if (!despMenu && leftTime>0) {
+    if (!despMenu && leftTime > 0) {
         const newpump = jQuery("<div>", {
             class: "pumpL anim"
         }).appendTo("body").click(deletePump);
@@ -94,7 +93,7 @@ function pumpkinL() {
 setTimeout(pumpkinL, 2000);
 
 function pumpkinR() {
-    if (!despMenu && leftTime>0) {
+    if (!despMenu && leftTime > 0) {
         const newpump = jQuery("<div>", {
             class: "pumpR anim"
         }).appendTo("body").click(deletePump);
@@ -122,13 +121,16 @@ const interval = setInterval(function() {
     if (leftTime == 0) {
         clearInterval(interval);
         $("#timer").text("Time out!");
-        jQuery("<img>",{
+        $(".interfaz").remove();
+        $("#counterDiv").css("animation-play-state", "running");
+        $("#restart").fadeIn(3000).css("display", "block");
+        jQuery("<img>", {
             class: "bigBomb",
             alt: "Bomba grande",
             src: "img/bigBombgif.gif"
         }).appendTo("body");
         $(".anim").remove();
-
+        $("#music").attr("src", "music/SomethingWickedByRossBugden_Crop.mp3");
     }
 }, 1000);
 
@@ -137,7 +139,6 @@ function pauseMenu() {
     if (despMenu == false) {
         $("#pauseOpt").css("display", "flex");
         $(".anim").css("animation-play-state", "paused");
-
         despMenu = true;
     } else {
         $("#pauseOpt").css("display", "none");
@@ -158,16 +159,25 @@ function teclaPulsada(e) {
 
 document.addEventListener("keyup", teclaPulsada);
 
+// Movimiento varita
+// function rPosition(wand00, mouseX, mouseY) {
+//     var offset = $("#wand00").offset();
+//     var x = mouseX - offset.left;
+//     var y = mouseY - offset.top;
+//     return { 'x': x, 'y': y };
+// }
+// $("body").click(rPosition);
+
+
+
 // TODO: 
 // Girar la varita
-// Pantalla final (Botón de restart y counter en grande)
 
 // BUG: doble click esqueleto
 // Pantalla de inicio centrada
 // Calabaza que se queda quieta
 
-// Mejoras: aumento velocidad a tope
+// FIXME: aumento velocidad a tope
 // Cuando termine la animacion que se removee el esqueleto
 // Arreglar la pantalla de inicio
 // Parar gifs
-// Meter música

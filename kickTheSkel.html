@@ -11,6 +11,8 @@
 </head>
 
 <body>
+    <!-- Música -->
+    <audio id="music" src="music/Skeleton Carnival by Shane Ivers.mp3" autoplay></audio>
     <!-- Contador de esqueletos -->
     <div id="counterDiv">
         <p>Counter:</p>
@@ -18,15 +20,16 @@
             0
         </div>
     </div>
+    <a href="kickTheSkel.html" class="restart" id="restart">Restart</a>
     <!-- Timer -->
-    <div id="timer">
+    <div id="timer" class="interfaz">
         60
     </div>
     <!-- Boton pause -->
-    <div id="pauseBtn">
+    <div id="pauseBtn" class="interfaz">
         ||
     </div>
-    <div id="pauseOpt">
+    <div id="pauseOpt" class="interfaz">
         <a href="index.html">
             Menu
         </a>
@@ -37,8 +40,7 @@
             Continue
         </a>
     </div>
-    <img class="image" id="wand00" src="img/wand00.png" alt="">
-
+    <img class="image interfaz" id="wand00" src="img/wand00.png" alt="Wand">
     <script src="script.js"></script>
 </body>
 
