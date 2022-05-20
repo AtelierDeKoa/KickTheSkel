@@ -16,3 +16,12 @@ function abrirHowPlay() {
 
 howToPlay.addEventListener("click",abrirHowPlay);
 X.addEventListener("click",abrirHowPlay);
+
+// Abrir y cerrar How to Play al pulsar Esc
+function teclaPulsada(e) {
+    if (e.code == "Escape") {
+        pauseMenu();
+    }
+};
+
+document.addEventListener("keyup", abrirHowPlay);

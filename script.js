@@ -32,7 +32,7 @@ function deletePump() {
 
 // Crear nuevos esqueletos
 function figL() {
-    if (!despMenu) {
+    if (!despMenu && leftTime>0) {
         const newfig = jQuery("<div>", {
             class: "figL anim"
         }).appendTo("body").click(deleteSkel);
@@ -53,7 +53,7 @@ function figL() {
 setTimeout(figL, 1000);
 
 function figR() {
-    if (!despMenu) {
+    if (!despMenu && leftTime>0) {
         const newfig = jQuery("<div>", {
             class: "figR anim"
         }).appendTo("body").click(deleteSkel);
@@ -74,7 +74,7 @@ setTimeout(figR, 1000);
 
 // Crear calabazas
 function pumpkinL() {
-    if (!despMenu) {
+    if (!despMenu && leftTime>0) {
         const newpump = jQuery("<div>", {
             class: "pumpL anim"
         }).appendTo("body").click(deletePump);
@@ -94,7 +94,7 @@ function pumpkinL() {
 setTimeout(pumpkinL, 2000);
 
 function pumpkinR() {
-    if (!despMenu) {
+    if (!despMenu && leftTime>0) {
         const newpump = jQuery("<div>", {
             class: "pumpR anim"
         }).appendTo("body").click(deletePump);
@@ -122,6 +122,13 @@ const interval = setInterval(function() {
     if (leftTime == 0) {
         clearInterval(interval);
         $("#timer").text("Time out!");
+        jQuery("<img>",{
+            class: "bigBomb",
+            alt: "Bomba grande",
+            src: "img/bigBombgif.gif"
+        }).appendTo("body");
+        $(".anim").remove();
+
     }
 }, 1000);
 
@@ -142,6 +149,7 @@ function pauseMenu() {
 $("#pauseBtn").click(pauseMenu);
 $("#continue").click(pauseMenu);
 
+// Abrir y cerrar el menu de pausa al pulsar Esc
 function teclaPulsada(e) {
     if (e.code == "Escape") {
         pauseMenu();
@@ -152,7 +160,7 @@ document.addEventListener("keyup", teclaPulsada);
 
 // TODO: 
 // Girar la varita
-// Pantalla final
+// Pantalla final (Botón de restart y counter en grande)
 
 // BUG: doble click esqueleto
 // Pantalla de inicio centrada
@@ -162,3 +170,4 @@ document.addEventListener("keyup", teclaPulsada);
 // Cuando termine la animacion que se removee el esqueleto
 // Arreglar la pantalla de inicio
 // Parar gifs
+// Meter música

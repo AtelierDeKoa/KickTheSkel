@@ -36,11 +36,6 @@ body {
     position: absolute;
 }
 
-.lilBomb01 {
-    height: 200px;
-    display: none;
-}
-
 
 /* Calabazas */
 
@@ -64,6 +59,12 @@ body {
     width: 100px;
 }
 
+/* Bombas */
+.lilBomb01 {
+    height: 200px;
+    display: none;
+}
+
 .lilBomb02 {
     height: 100px;
     display: none;
@@ -71,6 +72,13 @@ body {
     position: absolute;
 }
 
+.bigBomb{
+    position: absolute;
+    bottom: 0px;
+    height: 100vh;
+    width: auto;
+    z-index: 1;
+}
 
 /* Counter */
 
