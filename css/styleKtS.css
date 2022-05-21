@@ -14,7 +14,7 @@ body {
 
 #wand00 {
     position: absolute;
-    transform-origin: bottom center;
+    transform-origin: bottom;
     height: 20%;
     bottom: 0px;
     left: 45%;

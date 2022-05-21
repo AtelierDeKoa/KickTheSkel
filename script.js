@@ -2,6 +2,7 @@
 let counter = 0;
 let leftTime = 60;
 let despMenu = false;
+const wandX = document.getElementById("wand00").getBoundingClientRect().x;
 
 
 // Borrar esqueletos
@@ -154,24 +155,39 @@ $("#continue").click(pauseMenu);
 function teclaPulsada(e) {
     if (e.code == "Escape") {
         pauseMenu();
+    } else if (e.code == "KeyR") {
+        window.location.reload();
     }
 };
 
 document.addEventListener("keyup", teclaPulsada);
 
 // Movimiento varita
-// function rPosition(wand00, mouseX, mouseY) {
-//     var offset = $("#wand00").offset();
-//     var x = mouseX - offset.left;
-//     var y = mouseY - offset.top;
-//     return { 'x': x, 'y': y };
-// }
-// $("body").click(rPosition);
+document.body.onmousemove = function(e) {
+    if (leftTime > 0 && !despMenu) {
+        e = e || window.event;
+        var posX = e.clientX;
+        var posY = e.clientY;
+        var ang;
+        if (posX == wandX) {
+            ang = 0;
+        } else {
+            ang = 180 / Math.PI * Math.atan((visualViewport.height - posY) / (wandX - posX));
+            if (ang > 0) {
+                ang -= 90;
+            } else {
+                ang += 90;
+            }
+        }
+        $("#wand00").css("transform", "rotate(" + ang + "deg)");
+    }
+
+};
 
 
 
-// TODO: 
-// Girar la varita
+
+
 
 // BUG: doble click esqueleto
 // Pantalla de inicio centrada
@@ -181,3 +197,5 @@ document.addEventListener("keyup", teclaPulsada);
 // Cuando termine la animacion que se removee el esqueleto
 // Arreglar la pantalla de inicio
 // Parar gifs
+// Pause -> parar musica
+// Botones para controlar mutear musica
