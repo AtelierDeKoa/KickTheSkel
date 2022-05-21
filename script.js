@@ -10,6 +10,8 @@ function deleteSkel() {
     // Subir numero del contador
     counter++;
     $("#counter").text(counter);
+    // No hay doble click
+    $(this).css("pointer-events", "none");
     // Ocultar el esqueleto
     $(this).find(".skel01").css("display", "none");
     // Que aparezca la bomba
@@ -23,6 +25,8 @@ function deletePump() {
     // Subir numero del contador
     counter = counter + 5;
     $("#counter").text(counter);
+    // No hay doble click
+    $(this).css("pointer-events", "none");
     // Ocultar la calabaza
     $(this).find(".pump").css("display", "none");
     // Que aparezca la bomba
@@ -47,6 +51,7 @@ function figL() {
             alt: "Esqueleto *c muere*",
             src: "img/lilBomb01.png"
         }).appendTo(newfig);
+        setTimeout(() => newfig.remove(), 10000);
     }
     setTimeout(figL, 1000 * Math.random() + 2000);
 };
@@ -67,6 +72,7 @@ function figR() {
             alt: "Esqueleto *c muere*",
             src: "img/lilBomb01.png"
         }).appendTo(newfig);
+        setTimeout(() => newfig.remove(), 10000);
     }
     setTimeout(figR, 1000 * Math.random() + 2000);
 };
@@ -88,6 +94,7 @@ function pumpkinL() {
             alt: "Calabaza *c muere*",
             src: "img/lilBomb01.png"
         }).appendTo(newpump);
+        setTimeout(() => newpump.remove(), 5000);
     }
     setTimeout(pumpkinL, 5000 + (1000 * Math.random() + 8000));
 }
@@ -108,6 +115,7 @@ function pumpkinR() {
             alt: "Calabaza *c muere*",
             src: "img/lilBomb01.png"
         }).appendTo(newpump);
+        setTimeout(() => newpump.remove(), 5000);
     }
     setTimeout(pumpkinR, 1000 * Math.random() + 8000);
 }
@@ -119,7 +127,7 @@ const interval = setInterval(function() {
         leftTime--;
     }
     $("#timer").text(leftTime);
-    if (leftTime == 0) {
+    if (leftTime <= 0) {
         clearInterval(interval);
         $("#timer").text("Time out!");
         $(".interfaz").remove();
@@ -140,10 +148,12 @@ function pauseMenu() {
     if (despMenu == false) {
         $("#pauseOpt").css("display", "flex");
         $(".anim").css("animation-play-state", "paused");
+        document.getElementById("music").pause();
         despMenu = true;
     } else {
         $("#pauseOpt").css("display", "none");
         $(".anim").css("animation-play-state", "running");
+        document.getElementById("music").play();
         despMenu = false;
     }
 };
@@ -151,12 +161,26 @@ function pauseMenu() {
 $("#pauseBtn").click(pauseMenu);
 $("#continue").click(pauseMenu);
 
-// Abrir y cerrar el menu de pausa al pulsar Esc
+
 function teclaPulsada(e) {
-    if (e.code == "Escape") {
+
+    if (e.code == "Escape" || e.code == "KeyP") {
+        // Abrir y cerrar el menu de pausa al pulsar Esc
         pauseMenu();
     } else if (e.code == "KeyR") {
+        // Reiniciar
         window.location.reload();
+    } else if (e.code == "KeyM") {
+        // Volver Inicio
+        window.location = "index.html";
+    } else if (e.code == "KeyF") {
+        // Terminar partida
+        leftTime = 0;
+    } else if (e.code == "Digit8") {
+        // Insta winning por la cara
+        leftTime = 0;
+        counter += 2000;
+        $("#counter").text(counter);
     }
 };
 
@@ -188,14 +212,8 @@ document.body.onmousemove = function(e) {
 
 
 
-
-// BUG: doble click esqueleto
-// Pantalla de inicio centrada
-// Calabaza que se queda quieta
+// BUG: Pantalla de inicio centrada
 
 // FIXME: aumento velocidad a tope
-// Cuando termine la animacion que se removee el esqueleto
 // Arreglar la pantalla de inicio
-// Parar gifs
-// Pause -> parar musica
 // Botones para controlar mutear musica

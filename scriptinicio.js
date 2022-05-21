@@ -1,3 +1,4 @@
+// Variables
 let playExp = document.getElementById("playExp");
 let howToPlay = document.getElementById("howToPlay");
 let X = document.getElementById("closeHtP");
