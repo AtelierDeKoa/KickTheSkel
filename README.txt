@@ -1,1 +1,2 @@
-Para ver el juego de manera correcta: presionar f11 o poner en pantalla completa.
+Kick the Skel is a clicker game.
+The only thing you have to do is click on the skeletons or pumpkins.
