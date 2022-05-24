@@ -161,7 +161,7 @@ function pauseMenu() {
 $("#pauseBtn").click(pauseMenu);
 $("#continue").click(pauseMenu);
 
-
+// Shortcuts
 function teclaPulsada(e) {
 
     if (e.code == "Escape" || e.code == "KeyP") {
@@ -207,13 +207,3 @@ document.body.onmousemove = function(e) {
     }
 
 };
-
-
-
-
-
-// BUG: Pantalla de inicio centrada
-
-// FIXME: aumento velocidad a tope
-// Arreglar la pantalla de inicio
-// Botones para controlar mutear musica
